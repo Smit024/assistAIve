@@ -1,0 +1,31 @@
+name,category,description,keywords,url
+ChatGPT,Text Generation,"AI-powered chatbot for writing, brainstorming, and problem-solving.","chatbot, text generation, writing",https://chat.openai.com/
+Claude,Text Generation,"AI assistant by Anthropic, great for conversational AI and writing tasks.","chatbot, writing, Claude, assistant",https://claude.ai/
+Jasper AI,Text Generation,"AI writing assistant designed for marketing, SEO, and content generation.","writing, marketing, jasper",https://www.jasper.ai/
+Copy.ai,Text Generation,"AI-powered tool for creating marketing copy, blog content, and more.","copywriting, text, blog",https://www.copy.ai/
+Cohere Generate,Text Generation,NLP-based AI model for generating high-quality text and business applications.,"cohere, NLP, text generation",https://cohere.com/
+GitHub Copilot,Code Generation,AI-powered coding assistant supporting multiple languages.,"code, github, copilot, programming",https://github.com/features/copilot
+Claude,Code Generation,AI model effective for code reviews and debugging.,"code review, Claude, debugging",https://claude.ai/
+AskCodi,Code Generation,AI-powered coding assistant for real-time code suggestions.,"coding, assistant, real-time",https://www.askcodi.com/
+Tabnine,Code Generation,AI code completion tool supporting multiple IDEs.,"tabnine, IDE, code completion",https://www.tabnine.com/
+Cody AI,Code Generation,AI-powered assistant for debugging and autocompletion.,"debugging, autocompletion, Cody",https://meetcody.ai/
+DataRobot,Data Analysis,AI platform for automated machine learning and predictive analytics.,"AutoML, data analysis, predictions",https://www.datarobot.com/
+MonkeyLearn,Data Analysis,AI-driven tool for text analysis and sentiment detection.,"text analysis, sentiment, monkeylearn",https://monkeylearn.com/
+BigML,Data Analysis,Machine learning platform for predictive modeling.,"predictive modeling, BigML, ML",https://bigml.com/
+DeepSeek,Data Analysis,AI-powered research assistant for analyzing documents.,"research, document analysis, DeepSeek",https://www.deepseek.com/
+Zotero,Data Analysis,AI-enhanced reference management tool.,"references, citation, Zotero",https://www.zotero.org/
+MidJourney,Image Generation,AI tool for creating artistic visuals from text.,"artistic visuals, MidJourney, images",https://www.midjourney.com/
+DALL·E 2,Image Generation,AI model for generating high-quality images from text.,"image generation, DALL-E, OpenAI",https://openai.com/dall-e-2/
+Runway ML,Image Generation,AI-powered tool for image and video editing.,"image editing, RunwayML, visuals",https://runwayml.com/
+StyleGAN,Image Generation,GAN-based AI for generating realistic images.,"GAN, realistic image, StyleGAN",https://stylegan.xyz/
+Artbreeder,Image Generation,AI tool for modifying and blending images.,"Artbreeder, blend, modify",https://www.artbreeder.com/
+Otter.ai,Audio & Voice,AI transcription tool for converting speech to text.,"speech to text, otter, audio",https://otter.ai/
+Descript,Audio & Voice,AI-powered audio and video transcription service.,"transcription, descript, audio",https://www.descript.com/
+Murf AI,Audio & Voice,AI-based voice generator for lifelike text-to-speech synthesis.,"voice generation, Murf, TTS",https://www.murf.ai/
+Sonix,Audio & Voice,AI transcription tool for audio and video files.,"sonix, audio transcription",https://sonix.ai/
+Deepgram,Audio & Voice,AI-powered speech recognition for real-time voice processing.,"speech recognition, Deepgram",https://www.deepgram.com/
+Synthesia,Video Editing,AI-powered video generation tool with virtual avatars.,"video generation, avatars",https://www.synthesia.io/
+Pictory,Video Editing,AI video editing tool for turning text into video.,"text to video, Pictory, editing",https://pictory.ai/
+Veed.io,Video Editing,Online AI-powered video editor.,"Veed, video editing, online editor",https://www.veed.io/
+Deepbrain AI,Video Editing,AI-powered text-to-video creation tool.,"Deepbrain, text to video, avatar",https://www.deepbrain.io/
+Rephrase.ai,Video Editing,AI video generation tool for personalized marketing.,"Rephrase, personalized video, marketing",https://www.rephrase.ai/

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | assistAIve</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .register-container {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.1);
+            width: 370px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2 {
+            margin-bottom: 25px;
+            color: #6a1b9a;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #7e57c2;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #512da8;
+        }
+        p {
+            margin-top: 15px;
+        }
+        a {
+            color: #7c4dff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Create an Account 🧠</h2>
+        <form method="POST" onsubmit="return validatePassword()">
+            <input type="text" name="username" placeholder="Choose a username" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="password" name="password" id="password" placeholder="Choose a password" required>
+            <div class="error" id="passwordError"></div>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('passwordError');
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!regex.test(password)) {
+                errorDiv.textContent = "Password must be 8+ chars, include uppercase, lowercase, number & special character.";
+                return false;
+            }
+            errorDiv.textContent = "";
+            return true;
+        }
+    </script>
+</body>
+</html>

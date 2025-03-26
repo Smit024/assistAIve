@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>assistAIve 🤖</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            background: radial-gradient(circle, #e6ddff, #d6c7ff, #c3b4f5);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 0 35px rgba(81, 45, 168, 0.4);
+            width: 500px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .header {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            color: #5e35b1;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .chat-box {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background: #f8f4ff;
+            animation: fadeIn 0.6s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .message-row.user {
+            flex-direction: row-reverse;
+        }
+
+        .avatar {
+            font-size: 22px;
+            margin-top: 4px;
+        }
+
+        .chat-bubble {
+            padding: 12px;
+            border-radius: 16px;
+            max-width: 75%;
+            animation: slideIn 0.3s ease-in-out;
+            word-wrap: break-word;
+        }
+
+        .message-row.bot .chat-bubble {
+            background: #673ab7;
+            color: white;
+            align-self: flex-start;
+            text-align: left;
+        }
+
+        .message-row.user .chat-bubble {
+            background: #ded1ff;
+            color: #333;
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .chat-bubble a {
+            color: #ffeb3b;
+            text-decoration: underline;
+            word-break: break-word;
+        }
+
+        .input-area {
+            display: flex;
+        }
+
+        .input-area input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 12px 0 0 12px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .input-area button {
+            background: #7c4dff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 0 12px 12px 0;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .input-area button:hover {
+            background: #5b2cff;
+        }
+
+        /* Typing animation */
+        #typingIndicator {
+            font-style: italic;
+            margin: 8px 0 0 35px;
+            color: #5e35b1;
+            display: none;
+        }
+
+        .dot {
+            animation: blink 1.2s infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            20% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">assistAIve 🤖</div>
+        <div class="chat-box" id="chatBox">
+            <div class="message-row bot">
+                <div class="avatar">🤖</div>
+                <div class="chat-bubble">
+                    👋 Hello! I'm assistAIve, your personal AI navigator.<br>
+                    Ask me about any AI tools or tasks!
+                </div>
+            </div>
+        </div>
+
+        <!-- Typing animation -->
+        <div id="typingIndicator">
+            assistAIve is typing<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="promptInput" placeholder="Describe what you want to do with AI..." onkeypress="handleKey(event)">
+            <button onclick="askBot()">Ask</button>
+        </div>
+    </div>
+
+    <script>
+        function handleKey(e) {
+            if (e.key === 'Enter') {
+                askBot();
+            }
+        }
+
+        function askBot() {
+    const input = document.getElementById('promptInput');
+    const prompt = input.value.trim();
+    if (!prompt) return;
+
+    const chatBox = document.getElementById('chatBox');
+
+    // USER message
+    const userMsgWrap = document.createElement('div');
+    userMsgWrap.className = 'message-row user';
+
+    const userAvatar = document.createElement('div');
+    userAvatar.className = 'avatar';
+    userAvatar.textContent = '👤';
+
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble';
+    userBubble.textContent = prompt;
+
+    userMsgWrap.appendChild(userAvatar);
+    userMsgWrap.appendChild(userBubble);
+    chatBox.appendChild(userMsgWrap);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    input.value = '';
+
+    // 🧠 Typing Bubble (fake message)
+    const typingRow = document.createElement('div');
+    typingRow.className = 'message-row bot';
+    typingRow.id = 'typingRow';
+
+    const typingAvatar = document.createElement('div');
+    typingAvatar.className = 'avatar';
+    typingAvatar.textContent = '🤖';
+
+    const typingBubble = document.createElement('div');
+    typingBubble.className = 'chat-bubble';
+    typingBubble.innerHTML = `assistAIve is typing<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>`;
+
+    typingRow.appendChild(typingAvatar);
+    typingRow.appendChild(typingBubble);
+    chatBox.appendChild(typingRow);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Fetch bot reply
+    fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+    })
+    .then(res => res.json())
+    .then(data => {
+        setTimeout(() => {
+            // ❌ Remove typing animation
+            const typingIndicator = document.getElementById('typingRow');
+            if (typingIndicator) typingIndicator.remove();
+
+            // ✅ Add real reply
+            data.forEach(tool => {
+                const botMsgWrap = document.createElement('div');
+                botMsgWrap.className = 'message-row bot';
+
+                const botAvatar = document.createElement('div');
+                botAvatar.className = 'avatar';
+                botAvatar.textContent = '🤖';
+
+                const botBubble = document.createElement('div');
+                botBubble.className = 'chat-bubble';
+                botBubble.innerHTML = `
+                    <strong>assistAIve:</strong><br><br>
+                    <strong>Name:</strong> ${tool.name}<br><br>
+                    <strong>Description:</strong> ${tool.description}<br><br>
+                    <strong>URL:</strong> <a href="${tool.url}" target="_blank">🔗 Visit</a>
+                `;
+
+                botMsgWrap.appendChild(botAvatar);
+                botMsgWrap.appendChild(botBubble);
+                chatBox.appendChild(botMsgWrap);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        }, 500); // delay for typing
+    });
+}
+
+    </script>
+</body>
+</html>
